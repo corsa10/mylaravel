@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/phpinfo', function () {
+    phpinfo();
+    return 0;
+});
+
+Route::get('/test', 'TestController@firstJob');

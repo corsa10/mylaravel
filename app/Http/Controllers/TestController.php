@@ -13,10 +13,5 @@ class TestController extends Controller
     {
         TestJob::dispatch('testController')->onQueue('test-first-queue');
         Log::info('写入队列-等待消费');
-
-        $test = function() {
-            return true
-        }
-        dd($test);
     }
 }

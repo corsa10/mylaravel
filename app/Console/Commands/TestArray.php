@@ -40,7 +40,13 @@ class TestArray extends Command
     {
         $this->info("测试开始");
         $startTime = microtime(true);
-        $this->test();
+
+        $date =  mktime(0,0,0,date('m'),date('d'));
+        $month = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
+
+        $endTime = mktime(23, 59, 59, date('m', strtotime(date('Y-m',$month))) + 1, 0);
+
+        dump(date('Y-m-d',$month),date('Y-m-d:H:i:s',$endTime));
         $endTime = microtime(true);
         $this->info("测试结束 --- 共计用时" . ($endTime - $startTime) . "秒");
     }

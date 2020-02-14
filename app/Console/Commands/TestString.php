@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\TestJob;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -43,8 +43,7 @@ class TestString extends Command
         //
         $this->info("测试开始");
         $startTime = microtime(true);
-
-        TestJob::dispatch('command')->onQueue('test-first-queue');
+        dd(Carbon::now()->addQuarter());
         $endTime = microtime(true);
         $this->info("测试结束 --- 共计用时" . ($endTime - $startTime) . "秒");
     }
